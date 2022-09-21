@@ -4,17 +4,20 @@ var router = express.Router();
 // rethinkdb
 const r = require('rethinkdb');
 var databaseName = process.env.RDB_DATABASE;
-var tableName = "books"; // set table name
+var tableName = "comments"; // set table name
 
 /* add book */
 router.post('/', (request,response ) => {
-    let book ={
-        'name': request.body.name,
-        'author': request.body.author
+    let commenT ={
+        'first_name': request.body.first_name,
+        'last_name': request.body.last_name,
+        'prop_id': request.body.prop_id,
+        'stars': request.body.stars,
+        'comment': request.body.comment
     };
   
     r.db(databaseName).table(tableName)
-        .insert(book)
+        .insert(commenT)
         .run(request._rdb)
         .then(cursor => cursor.toArray())
         .then( result => {
@@ -25,7 +28,7 @@ router.post('/', (request,response ) => {
     // response
     let data = {
         'success': true,
-        'message': "Book successfully added",
+        'message': "Comment successfully added",
     };
     response.json(data);
 });
@@ -45,11 +48,11 @@ router.get('/', (request,response ) => {
 });
 
 /* get single book */
-router.get('/:book_id', (request,response ) => {
-    let book_id = request.params.book_id;
+router.get('/:id', (request,response ) => {
+    let id = request.params.id;
 
     r.db(databaseName).table(tableName)
-        .get(book_id)
+        .get(id)
         .run(request._rdb)
         .then(result => {
             // logic if you want to set
@@ -59,14 +62,17 @@ router.get('/:book_id', (request,response ) => {
 });
 
 // update book
-router.put( '/:book_id', (request,response ) => {
-  let book_id = request.params.book_id;
+router.put( '/:id', (request,response ) => {
+  let id = request.params.id;
 
   r.db(databaseName).table(tableName)
       .get( book_id )
       .update( {
-        'name': request.body.name,
-        'author': request.body.author
+        'first_name': request.body.first_name,
+        'last_name': request.body.last_name,
+        'prop_id': request.body.prop_id,
+        'stars': request.body.stars,
+        'comment': request.body.comment
       })
       .run( request._rdb )
       .then(cursor => cursor.toArray() )
@@ -78,17 +84,17 @@ router.put( '/:book_id', (request,response ) => {
       // response
       let data = {
           'success': true,
-          'message': "Book successfully updated",
+          'message': "Comment successfully updated",
       };
       response.json(data);
 });
 
 // delete book
-router.delete( '/:book_id', (request,response ) => {
-  let book_id = request.params.book_id;
+router.delete( '/:id', (request,response ) => {
+  let id = request.params.id;
 
   r.db(databaseName).table(tableName)
-      .get(book_id)
+      .get(id)
       .delete()
       .run(request._rdb)
       .then(cursor => cursor.toArray() )
@@ -100,7 +106,7 @@ router.delete( '/:book_id', (request,response ) => {
       // response
       let data = {
           'success': true,
-          'message': "Book successfully deleted",
+          'message': "Comment successfully deleted",
       };
       response.json(data);
 });

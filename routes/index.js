@@ -4,7 +4,7 @@ var router = express.Router();
 // rethinkdb
 const r = require('rethinkdb');
 var databaseName = process.env.RDB_DATABASE;
-var tableName = "books"; // set table name
+var tableName = "comments"; // set table name
 
 /* home page */
 router.get('/', (request, response ) => {

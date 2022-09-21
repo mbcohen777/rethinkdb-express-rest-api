@@ -7,7 +7,7 @@ require( 'dotenv' ).config();
 
 // router
 var indexRouter = require('./routes/index');
-var booksRouter = require('./routes/books');
+var commentsRouter = require('./routes/comments');
 
 var app = express();
 
@@ -26,7 +26,7 @@ const connect = require( './lib/connect' );
 app.use( connect.connect ); // open rdb conn
 
 app.use('/', indexRouter);
-app.use('/books', booksRouter);
+app.use('/comments', commentsRouter);
 
 app.use( connect.close ); // close rdb conn 
 
