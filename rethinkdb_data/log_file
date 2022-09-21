@@ -1,0 +1,20 @@
+2022-09-21T17:12:06.592050715 0.007827s notice: Recursively removing directory /home/teamp2mr/gitprojects/test/rethinkdb-express-rest-api/rethinkdb_data/tmp
+2022-09-21T17:12:06.597937151 0.013712s notice: Initializing directory /home/teamp2mr/gitprojects/test/rethinkdb-express-rest-api/rethinkdb_data
+2022-09-21T17:12:06.598098598 0.013874s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/teamp2mr/gitprojects/test/rethinkdb-express-rest-api/rethinkdb_data' did not already exist or is empty.)
+2022-09-21T17:12:06.598142662 0.013918s notice: Running rethinkdb 2.4.2 (GCC 9.4.0)...
+2022-09-21T17:12:06.601486569 0.017263s notice: Running on Linux 5.4.0-126-generic x86_64
+2022-09-21T17:12:06.601525592 0.017301s notice: Loading data from directory /home/teamp2mr/gitprojects/test/rethinkdb-express-rest-api/rethinkdb_data
+2022-09-21T17:12:06.629892166 0.045668s info: Automatically using cache size of 4763 MB
+2022-09-21T17:12:06.631138906 0.046914s notice: Listening for intracluster connections on port 29015
+2022-09-21T17:12:06.633615070 0.049390s notice: Listening for client driver connections on port 28015
+2022-09-21T17:12:06.633652081 0.049427s notice: Listening for administrative HTTP connections on port 8080
+2022-09-21T17:12:06.633654110 0.049429s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2022-09-21T17:12:06.633656048 0.049431s notice: Listening on driver addresses: 127.0.0.1, ::1
+2022-09-21T17:12:06.633659492 0.049434s notice: Listening on http addresses: 127.0.0.1, ::1
+2022-09-21T17:12:06.633663014 0.049438s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2022-09-21T17:12:06.633668788 0.049444s notice: Server ready, "teamp2mr_Default_string_l0f" 0d3e5b5e-d273-4078-8d02-6e5aa9ad17bd
+2022-09-21T17:16:44.399201734 277.814977s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2022-09-21T17:16:44.399515484 277.815291s notice: Shutting down client connections...
+2022-09-21T17:16:44.402466723 277.818242s notice: All client connections closed.
+2022-09-21T17:16:44.402495786 277.818271s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2022-09-21T17:16:44.403336103 277.819112s notice: Storage engine shut down.
