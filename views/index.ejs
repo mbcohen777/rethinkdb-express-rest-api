@@ -4,20 +4,50 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <form>
+    <input type='text' placeholder="comment ID">
+    <button type='submit' id='buttonDelete'>Delete a Comment</button>
+    </form>
+    <form>
+    <input type='text' placeholder="first name">
+    <input type='text' placeholder="last name">
+    <input type='text' placeholder=" property ID">
+    <input type='text' placeholder="comment">
+    <input type='text' placeholder="stars">
+    <button type='submit' id='buttonAdd'>Add Comment</button>
+    </form>
     <div id="commentBox"></div>
     <script>
+    
+  
 
       fetch("/comments")
   .then((res) => res.json()).then((comments) => {
     console.log(comments);
     const commentBox = document.getElementById("commentBox");
     for (let n in comments) {
-      let results = JSON.stringify(comments[n]);
-      let newLi = document.createElement("li");
-      newLi.className = "commentItem";
-      newLi.innerHTML = `${comments[n][0]}`;
-      commentBox.appendChild(newLi);
-      commentBox.append(results);
+      let commentLi = document.createElement("li");
+      let fnLi = document.createElement("li");
+      let idLi = document.createElement("li");
+      let lnLi = document.createElement("li");
+      let propLi = document.createElement("li");
+      let starLi = document.createElement("li");
+      let commentContainer = document.createElement("div");
+      commentContainer.className = "container";
+      commentLi.innerHTML = comments[n].comment;
+      fnLi.innerHTML = `Author: ${comments[n].first_name} ${comments[n].last_name}`;
+      idLi.innerHTML = `comment id: ${comments[n].id}`;
+      // lnLi.innerHTML = comments[n].last_name;
+      propLi.innerHTML = `Property ID: ${comments[n].prop_id}`;
+      starLi.innerHTML = `Stars ${comments[n].stars}`;
+
+      commentContainer.append(propLi);
+      commentContainer.append(commentLi);
+      commentContainer.append(starLi);
+      commentContainer.append(fnLi);
+      commentContainer.append(lnLi);
+      commentContainer.append(idLi);
+      commentBox.appendChild(commentContainer);
     }
   });
     </script>

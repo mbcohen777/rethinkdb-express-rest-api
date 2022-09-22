@@ -6,7 +6,7 @@ const r = require('rethinkdb');
 var databaseName = process.env.RDB_DATABASE;
 var tableName = "comments"; // set table name
 
-/* add book */
+/* add comment */
 router.post('/', (request,response ) => {
     let commenT ={
         'first_name': request.body.first_name,
@@ -33,7 +33,7 @@ router.post('/', (request,response ) => {
     response.json(data);
 });
 
-/* get all books */
+/* get all comments */
 router.get('/', (request,response ) => {
 
     r.db(databaseName).table(tableName)
@@ -48,7 +48,7 @@ router.get('/', (request,response ) => {
         .catch( error => console.log(error));
 });
 
-/* get single book */
+/* get single comment */
 router.get('/:id', (request,response ) => {
     let id = request.params.id;
 
@@ -62,7 +62,7 @@ router.get('/:id', (request,response ) => {
         .catch( error => console.log(error));
 });
 
-// update book
+// update comment
 router.put( '/:id', (request,response ) => {
   let id = request.params.id;
 
@@ -90,7 +90,7 @@ router.put( '/:id', (request,response ) => {
       response.json(data);
 });
 
-// delete book
+// delete comment
 router.delete( '/:id', (request,response ) => {
   let id = request.params.id;
 

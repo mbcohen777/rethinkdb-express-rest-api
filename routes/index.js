@@ -6,9 +6,9 @@ const r = require('rethinkdb');
 var databaseName = process.env.RDB_DATABASE;
 var tableName = "comments"; // set table name
 
-/* home page */
+
 router.get('/', (request, response ) => {
-    response.render('index', { title: 'MyNotePaper' });
+    response.render('index', { title: 'Comments' });
 });
 
 /* create database and table */
