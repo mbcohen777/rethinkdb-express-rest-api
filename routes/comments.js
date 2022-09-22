@@ -41,8 +41,9 @@ router.get('/', (request,response ) => {
         .run(request._rdb)
         .then(cursor => cursor.toArray())
         .then(result => {
-            // logic if you want to set
             response.json(result);
+            result.render('index', { title: 'Comments' })
+            
         })
         .catch( error => console.log(error));
 });

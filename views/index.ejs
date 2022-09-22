@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p><a href="https://www.mynotepaper.com/build-rest-api-with-rethinkdb-nodejs-and-expressjs">Build REST API with RethinkDB, Node.js and Express.js</a></p>
+    <div id="commentBox"></div>
+    <script>
+
+      fetch("/comments")
+  .then((res) => res.json()).then((comments) => {
+    console.log(comments);
+    const commentBox = document.getElementById("commentBox");
+    for (let n in comments) {
+      let results = JSON.stringify(comments[n]);
+      let newLi = document.createElement("li");
+      newLi.className = "commentItem";
+      newLi.innerHTML = `${comments[n][0]}`;
+      commentBox.appendChild(newLi);
+      commentBox.append(results);
+    }
+  });
+    </script>
   </body>
 </html>

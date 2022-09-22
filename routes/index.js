@@ -27,4 +27,5 @@ router.get('/create-db-table', (request, response ) => {
     response.render('notice', { title: 'RethinkDB', message: message });
 });
 
+
 module.exports = router;
